@@ -31,15 +31,18 @@ export default {
 
 <template>
     <div class="container">
-        <h1 class="text-center my-3">My projects</h1>
-        <div class="row row-cols-3" v-for="project in projectList">
-            <div class="col">
+        <h1 class="text-center my-3 ">My projects</h1>
+        <div class="row row-cols-3 my-5 row-gap-3">
+            <div class="col" v-for="project in projectList" :key="project.id">
                 <div class="card">
-                    <div class="card-title">
-                        title
-                    </div>
+                    <img src="" class="card-img-top" alt="...">
                     <div class="card-body">
-
+                        <h2 class="card-title">
+                            {{ project.title }}
+                        </h2>
+                        <p class="card-text">
+                            {{ project.description }}
+                        </p>
                     </div>
                 </div>
 
