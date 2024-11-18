@@ -1,14 +1,16 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
-import HomeView from './HomeView.vue'
-import AboutView from './AboutView.vue'
+import ProjectsIndex from '../pages/ProjectsIndex.vue'
+import AboutMe from '../pages/AboutMe.vue'
 
 const routes = [
-    { path: '/', component: HomeView },
-    { path: '/about', component: AboutView },
+    { path: '/', component: ProjectsIndex, name: "index" },
+    { path: '/about', component: AboutMe, name: "about-me" },
 ]
 
 const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
 })
+
+export { router }

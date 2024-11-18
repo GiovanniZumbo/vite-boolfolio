@@ -1,5 +1,7 @@
 <script>
-import AppMain from './pages/ProjectsIndex.vue';
+import AppHeader from './components/AppHeader.vue';
+import ProjectsIndex from './pages/ProjectsIndex.vue';
+
 
 export default {
   data() {
@@ -8,14 +10,15 @@ export default {
     }
   },
   components: {
-    AppMain,
+    AppHeader,
+    ProjectsIndex,
   }
 }
 </script>
 
 <template>
-
-  <AppMain />
+  <AppHeader />
+  <ProjectsIndex />
 
 </template>
 
