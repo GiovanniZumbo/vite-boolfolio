@@ -1,6 +1,7 @@
 <script>
+import { RouterView } from 'vue-router';
 import AppHeader from './components/AppHeader.vue';
-import ProjectsIndex from './pages/ProjectsIndex.vue';
+
 
 
 export default {
@@ -11,14 +12,15 @@ export default {
   },
   components: {
     AppHeader,
-    ProjectsIndex,
+
   }
 }
 </script>
 
 <template>
   <AppHeader />
-  <ProjectsIndex />
+
+  <RouterView />
 
 </template>
 

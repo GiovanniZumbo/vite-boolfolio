@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     name: "AppHeader",
     data() {
@@ -13,7 +15,7 @@ export default {
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <router-link :to="{ name: 'index' }" class="navbar-brand">Boolfolio</router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,10 +23,11 @@ export default {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Index</a>
+                        <router-link :to="{ name: 'index' }" class="nav-link active"
+                            aria-current="page">Index</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Me</a>
+                        <router-link :to="{ name: 'about-me' }" class="nav-link">About Me</router-link>
                     </li>
                 </ul>
             </div>

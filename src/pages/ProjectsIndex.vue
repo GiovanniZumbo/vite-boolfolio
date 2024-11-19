@@ -34,8 +34,8 @@ export default {
         <h1 class="text-center my-3 ">My projects</h1>
         <div class="row row-cols-3 my-5 row-gap-3">
             <div class="col" v-for="project in projectList" :key="project.id">
-                <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                <div class="card h-100">
+                    <img :src="project.image_url" class="card-img-top h-75 object-fit-contain" alt="...">
                     <div class="card-body">
                         <h2 class="card-title">
                             {{ project.title }}
