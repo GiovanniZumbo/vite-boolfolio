@@ -1,10 +1,31 @@
 <script>
+import axios from 'axios';;
+
+
 export default {
     name: "SingleProject",
     data() {
         return {
-
+            singleProject: {},
+            ApiURL: "http://127.0.0.1:8000/api/projects",
         }
+    },
+    methods: {
+        getSingleProject() {
+            axios.get(`${this.ApiURL}/${this.$route.params.id}`)
+                .then((response) => {
+                    // handle success
+                    console.log(response.data.results);
+                    this.singleProject = response.data.results
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+        }
+    },
+    created() {
+        this.getSingleProject();
     }
 }
 </script>
@@ -13,20 +34,18 @@ export default {
     <div class="container">
 
         <h1 class="text-center my-4">
-            Progetto Nome
+            Progetto: {{ singleProject.title }}
         </h1>
 
-        <div class="row">
-            <div class="col-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ex eos commodi fugiat temporibus
-                    exercitationem officiis quasi possimus corrupti magnam error iusto voluptate esse omnis, consequatur
-                    incidunt dicta eligendi labore!
-                    Amet veritatis blanditiis accusantium itaque vero aspernatur placeat sunt hic quas, nemo quia,
-                    quibusdam modi id at earum delectus corporis eaque ad dolorum aperiam sapiente voluptas nesciunt.
-                    Dolores, numquam fuga!
-                    A nostrum doloribus veniam tempora sequi nobis deleniti repellendus praesentium quo! Eligendi esse
-                    officiis, minima, labore totam vel ab sit omnis, minus voluptatibus dolor exercitationem aperiam!
-                    Saepe quo mollitia excepturi?</p>
+        <div class="row ">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                <img :src="singleProject.image_url" class="img-fluid" alt="`${singleProject.title} image`">
+                <p>
+                    {{ singleProject.description }}
+                </p>
+                <p>
+                    Git Url: {{ singleProject.git_url }}
+                </p>
             </div>
         </div>
 
